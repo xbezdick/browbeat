@@ -53,6 +53,8 @@
 - name: Check Rally deployment
   shell: . {{ rally_venv }}/bin/activate; . {{ overcloudrc }}; rally deployment check
   register: rally_deployment_check
+  environment:
+          REQUESTS_CA_BUNDLE: "/etc/ssl/certs/ca-bundle.crt"
 
 - name: Fail if Rally deployment cannot be verfied
   fail:

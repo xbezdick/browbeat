@@ -23,3 +23,5 @@
              {{shaker_image}} --os-region-name {{ shaker_region }}
       register: image_result
       failed_when: image_result.rc != 0
+      environment:
+          REQUESTS_CA_BUNDLE: "/etc/ssl/certs/ca-bundle.crt"
